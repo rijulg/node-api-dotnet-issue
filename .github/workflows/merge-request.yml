@@ -33,5 +33,11 @@ jobs:
           sudo chown -R 1001:123 /var/lib/node-api-dotnet
           lib_path=/usr/lib/$(uname -m)-linux-gnu
           sudo ln -s $lib_path/libdl.so.2 $lib_path/libdl.so
+      - name: Setup hello dll
+        run: dotnet build
+        working-directory: dotnet
       - run: yarn install
-      - run: yarn test:cov
+      - name: Test
+        run: |
+          export DLL_PATH=$(pwd)/dotnet/bin/Debug/net6.0/dotnet.dll
+          yarn test
