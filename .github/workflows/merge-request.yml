@@ -24,9 +24,9 @@ jobs:
       - run: npm install -g yarn
       - name: Setup node-api-dotnet dependency
         run: |
-          git clone https://github.com/rijulg/node-api-dotnet.git
+          git clone https://github.com/microsoft/node-api-dotnet.git
           cd node-api-dotnet
-          git checkout patch-1
+          git checkout dev/jasongin/nativehost-ref
           dotnet build
           dotnet pack
           sudo cp -R out/pkg /var/lib/node-api-dotnet
