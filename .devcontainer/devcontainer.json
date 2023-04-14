@@ -1,0 +1,20 @@
+{
+  "name": "node-api-dotnet-issue",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "dev",
+  "workspaceFolder": "/home/workspace",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "esbenp.prettier-vscode",
+        "gamunu.vscode-yarn",
+        "eamodio.gitlens",
+        "Orta.vscode-jest",
+        "vscode-icons-team.vscode-icons",
+        "ms-dotnettools.csharp",
+        "ms-vscode.live-server"
+      ]
+    }
+  },
+  "postCreateCommand": " cd dotnet && dotnet build && cd .. && yarn install"
+}
