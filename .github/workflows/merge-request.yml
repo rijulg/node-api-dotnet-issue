@@ -26,7 +26,7 @@ jobs:
         run: |
           git clone https://github.com/microsoft/node-api-dotnet.git
           cd node-api-dotnet
-          git checkout dev/jasongin/nativehost-ref
+          git checkout 0b801480af46c2ca2cce18ce6d43cfc44f1e311f
           dotnet build
           dotnet pack
           sudo cp -R out/pkg /var/lib/node-api-dotnet
