@@ -26,12 +26,18 @@ jobs:
         run: |
           git clone https://github.com/microsoft/node-api-dotnet.git
           cd node-api-dotnet
-          git checkout 6cf786d7b38e89d6d1563f7a17351a1141adddd3
+          git checkout 0b801480af46c2ca2cce18ce6d43cfc44f1e311f
           dotnet build
           dotnet pack
           sudo cp -R out/pkg /var/lib/node-api-dotnet
           sudo chown -R 1001:123 /var/lib/node-api-dotnet
           lib_path=/usr/lib/$(uname -m)-linux-gnu
           sudo ln -s $lib_path/libdl.so.2 $lib_path/libdl.so
+      - name: Setup hello dll
+        run: dotnet build
+        working-directory: dotnet
       - run: yarn install
-      - run: yarn test:cov
+      - name: Test
+        run: |
+          export DLL_PATH=$(pwd)/dotnet/bin/Debug/net6.0/dotnet.dll
+          yarn test

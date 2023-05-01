@@ -13,4 +13,13 @@ export default class DLLRepository {
   getHello() {
     return this.helloClass.Hello();
   }
+  addItem(item: string) {
+    this.helloClass.AddItem(item);
+  }
+  getItems(): any {
+    return this.helloClass.items;
+  }
+  getItemString(): string {
+    return this.helloClass.ItemString();
+  }
 }

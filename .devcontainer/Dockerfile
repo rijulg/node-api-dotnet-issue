@@ -16,7 +16,7 @@ RUN ln -s ~/.dotnet/dotnet /bin/dotnet
 WORKDIR /var/opt
 RUN git clone https://github.com/microsoft/node-api-dotnet.git && \
     cd node-api-dotnet && \
-    git checkout 6cf786d7b38e89d6d1563f7a17351a1141adddd3 && \
+    git checkout 0b801480af46c2ca2cce18ce6d43cfc44f1e311f && \
     dotnet build && \
     dotnet pack && \
     cp -R out/pkg /var/lib/node-api-dotnet
