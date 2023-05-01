@@ -18,4 +18,15 @@ describe("DLL", () => {
     const data = await repository.getHello();
     expect(data).toBe("Hello from DLL");
   });
+
+  it("adds strings DLL", async () => {
+    repository.addItem("Hello");
+    repository.addItem("World");
+    const itemString = repository.getItemString();
+    expect(itemString).toBe("Hello,World");
+  });
+
+  it("gets items", async () => {
+    repository.getItems();
+  });
 });
