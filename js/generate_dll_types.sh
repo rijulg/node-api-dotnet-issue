@@ -9,10 +9,11 @@ postprocess_file() {
 
 script=$(realpath "$0")
 curdir=$(dirname "$script")
+parentdir=$(dirname "$curdir")
 
 generator=/var/lib/node-api-dotnet/node-api-dotnet-generator
-dll_dir=$curdir/dotnet/bin/Debug/net6.0
-output_dir=$curdir/src/repositories/@types/dist
+dll_dir=$parentdir/dotnet/bin/Debug/net6.0
+output_dir=$curdir/@types/dist
 
 mkdir -p $output_dir;
 npm exec $generator -- --typedefs $output_dir/dll.d.ts --assembly $dll_dir/dotnet.dll

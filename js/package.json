@@ -1,0 +1,12 @@
+{
+  "name": "nest",
+  "version": "0.1.0",
+  "scripts": {
+    "test": "node main.mjs",
+    "prepare": "bash generate_dll_types.sh"
+  },
+  "dependencies": {
+    "node-api-dotnet": "file:/var/lib/node-api-dotnet/node-api-dotnet"
+  },
+  "devDependencies": {}
+}

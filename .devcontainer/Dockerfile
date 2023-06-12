@@ -8,15 +8,15 @@ RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && apt-get install
 
 # Install Dotnet
 RUN wget https://dot.net/v1/dotnet-install.sh -O dotnet-install.sh && chmod +x ./dotnet-install.sh && \
-    ./dotnet-install.sh --channel 7.0 --verbose && \
-    ./dotnet-install.sh --channel 6.0 --verbose
+    ./dotnet-install.sh --channel 7.0.3xx --verbose && \
+    ./dotnet-install.sh --channel 6.0.2xx --verbose
 RUN ln -s ~/.dotnet/dotnet /bin/dotnet
 
 # Install and build node-api-dotnet
 WORKDIR /var/opt
 RUN git clone https://github.com/microsoft/node-api-dotnet.git && \
     cd node-api-dotnet && \
-    git checkout 6cf786d7b38e89d6d1563f7a17351a1141adddd3 && \
+    git checkout ddca0562256bb4827303660fd10043a5cd5cc7ed && \
     dotnet build && \
     dotnet pack && \
     cp -R out/pkg /var/lib/node-api-dotnet

@@ -16,5 +16,5 @@
       ]
     }
   },
-  "postCreateCommand": " cd dotnet && dotnet build && cd .. && yarn install"
+  "postCreateCommand": "cd /home/workspace/dotnet && dotnet build && cd /home/workspace/js && yarn install"
 }
